@@ -32,6 +32,7 @@ public class OrderService {
 	}
 	
 	public Order insert(Order obj) {
+		obj.setMoment(Instant.now());
 		return repository.save(obj);
 	}
 	
@@ -59,5 +60,6 @@ public class OrderService {
 		Instant instant = Instant.now();
 		entity.setMoment(instant);
 		entity.setProduct(obj.getProduct());
+		entity.setClient(obj.getClient());
 	}
 }
